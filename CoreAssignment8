@@ -1,0 +1,43 @@
+
+
+**Q1. What is ORM in Hibernate?**
+ORM stands for Object-Relational Mapping. It is a technique used to map objects in an object-oriented programming language (such as Java) to database tables and vice versa. Hibernate is an ORM framework that provides a mapping between Java objects and relational database tables, allowing developers to interact with the database using object-oriented concepts.
+
+**Q2. What are the advantages of Hibernate over JDBC?**
+Some advantages of Hibernate over JDBC are:
+- Simplified database access: Hibernate handles the mapping between objects and database tables, eliminating the need for manual JDBC coding.
+- Object-oriented approach: Hibernate allows developers to work with objects, making the code more maintainable and readable.
+- Improved productivity: Hibernate provides automatic SQL generation, caching, and transaction management, reducing development time.
+- Database independence: Hibernate abstracts the database-specific details, allowing applications to be more portable across different database systems.
+- Easier data manipulation: Hibernate simplifies CRUD operations (Create, Read, Update, Delete) and supports advanced querying capabilities.
+
+**Q3. What are some of the important interfaces of the Hibernate framework?**
+Some important interfaces in the Hibernate framework include:
+- `SessionFactory`: Represents a factory for creating `Session` instances.
+- `Session`: Provides methods for interacting with the database, performing CRUD operations, and executing queries.
+- `Transaction`: Represents a database transaction and provides methods for managing transaction boundaries.
+- `Query`: Used for executing queries and retrieving results from the database.
+- `Criteria`: Provides a more object-oriented way to create queries and retrieve objects based on specific criteria.
+
+**Q4. What is a Session in Hibernate?**
+In Hibernate, a `Session` represents a single-threaded unit of work with the database. It provides methods for storing, retrieving, updating, and deleting objects from the database. The `Session` is obtained from a `SessionFactory` and serves as a gateway for all database operations in Hibernate.
+
+**Q5. What is a SessionFactory?**
+A `SessionFactory` in Hibernate is a factory class that provides `Session` instances. It is responsible for creating and managing `Session` objects. The `SessionFactory` is typically built during the application startup and shared across the application.
+
+**Q6. What is HQL?**
+HQL (Hibernate Query Language) is a powerful object-oriented query language provided by Hibernate. It is similar to SQL but operates on persistent objects rather than database tables. HQL queries are written using entity and property names, allowing developers to work with objects and relationships in a more natural and intuitive way.
+
+**Q7. What are Many-to-Many associations?**
+Many-to-Many associations in Hibernate represent a relationship between two entities where multiple instances of one entity can be associated with multiple instances of another entity. For example, in a bookstore application, a book can be associated with multiple authors, and an author can be associated with multiple books. Hibernate provides mechanisms to handle such associations, including the use of a join table or association objects.
+
+**Q8. What is Hibernate caching?**
+Hibernate caching is a mechanism that allows Hibernate to cache frequently accessed data to improve application performance. Caching reduces the number of database queries by storing the query results in memory, making subsequent access faster. Hibernate provides different levels of caching, such as the first level cache (session cache) and the second level cache (shared cache).
+
+**Q9. What is the difference between first level cache and second level cache?**
+The first level cache, also known as the session cache, is a cache maintained by Hibernate within a single `Session`. It stores the entities that have been retrieved or persisted within that session. The first level cache is associated with a single database session and is not shared between different sessions.
+
+The second level cache, on the other hand, is a shared cache that is accessible by multiple `Session` instances. It is a global cache that stores entities, queries, and other persistent objects. The second level cache can be configured to use different caching strategies and provides a mechanism to share frequently accessed data across multiple sessions.
+
+**Q10. What can you tell about the Hibernate Configuration File?**
+The Hibernate Configuration File (typically named `hibernate.cfg.xml`) is an XML file that contains configuration settings for Hibernate. It provides information such as the database connection properties, dialect, mapping files or classes, caching settings, and other Hibernate-specific configurations. The configuration file is usually placed in the application's classpath and is used by Hibernate to initialize the `SessionFactory` and establish the connection with the database.
