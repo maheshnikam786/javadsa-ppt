@@ -1,0 +1,218 @@
+💡 Q1.1. Write a program to show Interface Example in Java?
+
+// Define the interface
+interface Vehicle {
+    void start();
+    void stop();
+}
+
+// Implement the interface
+class Car implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car started.");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Car stopped.");
+    }
+}
+
+// Implement the interface
+class Bike implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Bike started.");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Bike stopped.");
+    }
+}
+
+// Main class
+public class InterfaceExample {
+    public static void main(String[] args) {
+        Vehicle car = new Car();
+        car.start();
+        car.stop();
+
+        Vehicle bike = new Bike();
+        bike.start();
+        bike.stop();
+    }
+}
+
+
+Q2.Write a program a Program with 2 concrete method and 2 abstract method in java ?**
+
+// Abstract class
+abstract class Shape {
+    // Abstract methods
+    abstract void draw();
+    abstract double calculateArea();
+
+    // Concrete methods
+    void display() {
+        System.out.println("This is a shape.");
+    }
+
+    void info() {
+        System.out.println("This shape has an area of " + calculateArea());
+    }
+}
+
+// Concrete class implementing Shape
+class Rectangle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a rectangle.");
+    }
+
+    @Override
+    double calculateArea() {
+        double length = 10;
+        double width = 5;
+        return length * width;
+    }
+}
+
+// Concrete class implementing Shape
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle.");
+    }
+
+    @Override
+    double calculateArea() {
+        double radius = 7;
+        return Math.PI * radius * radius;
+    }
+}
+
+// Main class
+public class AbstractMethodExample {
+    public static void main(String[] args) {
+        Shape rectangle = new Rectangle();
+        rectangle.draw();
+        rectangle.display();
+        rectangle.info();
+
+        Shape circle = new Circle();
+        circle.draw();
+        circle.display();
+        circle.info();
+    }
+}
+
+Q3.Write a program  to show the use of functional interface in java?**
+// Define a functional interface
+@FunctionalInterface
+interface Calculator {
+    int calculate(int a, int b);
+}
+
+// Main class
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        // Using lambda expression to implement the functional interface
+        Calculator addition = (a, b) -> a + b;
+        int result = addition.calculate(5, 3);
+        System.out.println("Addition: " + result);
+
+        // Using an anonymous inner class to implement the functional interface
+        Calculator subtraction = new Calculator() {
+            @Override
+            public int calculate(int a, int b) {
+                return a - b;
+            }
+        };
+        result = subtraction.calculate(8, 2);
+        System.out.println("Subtraction: " + result);
+    }
+}
+
+Q4.What is an interface in Java?**
+In Java, an interface is a reference type that defines a contract or a set of methods that a class implementing the interface must adhere to. It is a blueprint for a class and defines the methods (without implementation) that the implementing class must provide.
+
+1. Interface Declaration: An interface is declared using the `interface` keyword followed by the interface name.
+
+2. Method Signatures: Interfaces can declare methods without providing the implementation details. These methods are implicitly public and abstract. They define the behavior that implementing classes must follow.
+
+3. Multiple Inheritance: Unlike classes, a class can implement multiple interfaces. This allows for achieving multiple inheritance of behavior in Java.
+
+4. Implementation: Classes that implement an interface must provide the implementation for all the methods declared in the interface. Failure to do so will result in a compilation error.
+
+5. Polymorphism: Interfaces are used to achieve polymorphism in Java. A reference of an interface type can be used to refer to an instance of any class that implements the interface.
+
+Interfaces in Java provide a way to achieve abstraction, decoupling the implementation details from the usage. They allow for defining contracts and creating a consistent and interchangeable behavior across multiple classes.
+
+Q5.What is the use of interface in Java?**
+
+Interfaces in Java serve several purposes and provide important features in the language. Here are some key uses and benefits of interfaces in Java:
+
+1. Abstraction: Interfaces allow you to define a contract or a set of methods that a class must implement without specifying the implementation details. This enables abstraction and separation of concerns, where the interface defines the "what" and the implementing classes define the "how".
+
+2. Multiple Inheritance: Java supports single inheritance, where a class can extend only one superclass. However, a class can implement multiple interfaces. This allows for achieving multiple inheritance of behavior, as a class can inherit methods and contracts from multiple interfaces.
+
+3. Polymorphism: Interfaces provide a way to achieve polymorphism in Java. A reference variable of an interface type can refer to an instance of any class that implements the interface. This enables writing code that is more flexible and adaptable, as different implementations of the same interface can be used interchangeably.
+
+.What is the lambda expression of Java 8?**
+
+In Java 8, lambda expressions were introduced as a new feature to enable functional programming constructs in the language. A lambda expression is a concise way to represent an anonymous function—a function without a name—that can be used as a method parameter, assigned to a variable, or returned from a method.
+(parameters) -> { body }
+
+
+💡 **Q7.Can you pass lambda expressions to a method? When?**
+Yes, lambda expressions can be passed as arguments to methods in Java. This is possible when the method parameter is of a functional interface type. A functional interface is an interface that has only one abstract method.
+// Functional interface with a single abstract method
+interface MyInterface {
+    void performAction();
+}
+
+// Method accepting a functional interface as a parameter
+public void executeAction(MyInterface action) {
+    // Perform some action
+    action.performAction();
+}
+
+// Main class
+public class LambdaExpressionExample {
+    public static void main(String[] args) {
+        // Pass a lambda expression as an argument to the method
+        executeAction(() -> {
+            System.out.println("Performing action...");
+        });
+    }
+}
+
+Q8.What is the functional interface in Java 8?**
+In Java 8, a functional interface is an interface that contains only one abstract method. Functional interfaces are also known as single abstract method (SAM) interfaces. The introduction of functional interfaces in Java 8 is closely tied to the addition of lambda expressions, which provide a concise way to represent the implementation of the single abstract method in a functional interface.
+
+Key points about functional interfaces in Java 8:
+
+1. Single Abstract Method: A functional interface can have only one abstract method. It may also have default methods, static methods, and constants, but it must have exactly one abstract method.
+
+2. @FunctionalInterface Annotation: The `@FunctionalInterface` annotation is an optional annotation that can be used to explicitly mark an interface as a functional interface. While not required, this annotation helps to enforce the contract of a functional interface, and the compiler can provide an error if the interface does not meet the criteria of a functional interface.
+
+3. Lambda Expressions: Functional interfaces are closely associated with lambda expressions. Lambda expressions provide a concise way to represent the implementation of the single abstract method in a functional interface. The lambda expression can be used wherever the functional interface is expected, allowing for a more compact and expressive code.
+
+4. Built-in Functional Interfaces: Java 8 introduced several built-in functional interfaces in the `java.util.function` package. These interfaces provide common function types, such as `Predicate`, `Function`, `Consumer`, `Supplier`, and more. They are designed to cover different use cases for functional programming and can be readily used with lambda expressions.
+
+Functional interfaces and lambda expressions in Java 8 enable functional-style programming, promoting more concise and readable code for certain scenarios. They provide a way to treat functions as first-class citizens and enable behavior to be passed around as data.
+
+*Q9.What is the benefit of lambda expressions in Java 8?**
+
+Lambda expressions introduced in Java 8 bring several benefits to the language and programming practices. Here are some of the key benefits of lambda expressions in Java 8:
+
+Concise Syntax: Lambda expressions provide a compact and concise syntax for representing anonymous functions. They allow you to write shorter and more readable code by reducing boilerplate code, especially when implementing functional interfaces.
+
+Improved Readability: By using lambda expressions, the code becomes more focused on the logic or behavior being expressed. Lambda expressions can make the code more expressive and easier to understand, as they provide a clear and concise way to represent behavior.
+
+Functional Programming: Lambda expressions enable functional programming constructs in Java. They promote the use of functional interfaces and provide support for higher-order functions, function composition, and other functional programming concepts. This allows for writing code that is more modular, reusable, and maintainable.
+
+**Q10.Is it mandatory for a lambda expression to have parameters?**
+No, it is not mandatory for a lambda expression in Java to have parameters. The presence or absence of parameters in a lambda expression depends on the functional interface that it is implementing.
