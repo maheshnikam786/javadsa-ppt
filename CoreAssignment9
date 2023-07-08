@@ -1,0 +1,61 @@
+**Q1. What is Spring Framework?**
+The Spring Framework is an open-source Java framework that provides comprehensive support for building enterprise-grade applications. It offers a lightweight and modular approach to application development, emphasizing flexibility, scalability, and testability. Spring provides a range of features and modules that address various aspects of application development, such as dependency injection, aspect-oriented programming, data access, transaction management, and more.
+
+**Q2. What are the features of Spring Framework?**
+Some key features of the Spring Framework include:
+- Dependency Injection (DI): Allows for the loose coupling of components by managing their dependencies and promoting modular design.
+- Aspect-Oriented Programming (AOP): Supports modularization of cross-cutting concerns, such as logging, transaction management, and security.
+- Transaction Management: Provides a consistent programming model for managing transactions across different data sources.
+- MVC Framework: Offers a powerful Model-View-Controller architecture for building web applications.
+- JDBC Support: Simplifies database access through the use of JDBC templates and declarative transaction management.
+- Integration with other frameworks: Seamless integration with other frameworks and technologies, such as Hibernate, JPA, JMS, and more.
+- Testing Support: Provides support for testing Spring-based applications using the Spring TestContext Framework and other testing utilities.
+- Security: Offers robust security features, including authentication, authorization, and secure communication.
+
+**Q3. What is a Spring configuration file?**
+A Spring configuration file is an XML or Java-based configuration file that contains the configuration metadata for a Spring application. It specifies how various components, such as beans, aspects, and interceptors, are configured and wired together. The configuration file defines the beans that make up the application's object graph and their relationships. It provides information on bean definitions, dependencies, scopes, and other configuration details required by the Spring container.
+
+**Q4. What do you mean by IoC Container?**
+Inversion of Control (IoC) Container is a core concept in the Spring Framework. It manages the lifecycle and configuration of objects (beans) in a Spring application. The IoC Container takes control of instantiating, configuring, and managing the dependencies of objects based on the configuration metadata. Instead of objects creating and managing their dependencies themselves, the IoC Container "inverts" the control by allowing the container to handle these responsibilities. The container is responsible for wiring dependencies, resolving dependencies, and managing the lifecycle of beans.
+
+**Q5. What do you understand by Dependency Injection?**
+Dependency Injection (DI) is a design pattern and a fundamental concept in the Spring Framework. It is a way to achieve loose coupling between components by injecting dependencies rather than having the components create or manage their dependencies. In DI, the dependencies required by a component are provided from an external source (usually the IoC Container) rather than being created within the component itself. This allows for easier testing, modular design, and flexibility in swapping dependencies.
+
+**Q6. Explain the difference between constructor and setter injection?**
+Constructor injection and setter injection are two approaches to achieve Dependency Injection in Spring:
+- Constructor Injection: In constructor injection, the dependencies of a bean are provided through its constructor. The dependencies are declared as parameters in the constructor, and the container resolves and injects the dependencies when creating the bean instance. Constructor injection promotes the immutability of objects and ensures that all required dependencies are provided at the time of instantiation.
+- Setter Injection: In setter injection, the dependencies of a bean are provided through setter methods. The bean class exposes setter methods for each dependency, and the container invokes these methods to set the dependencies after creating the bean instance. Setter injection allows for flexibility in injecting dependencies and supports optional dependencies or dynamic changes to dependencies at runtime.
+
+**Q7. What are Spring Beans?**
+Spring Beans are the objects managed by the Spring IoC Container. A Spring Bean represents an instance of a class that is initialized, configured, and managed by the Spring Framework. Beans are defined in the Spring configuration files and are identified by their unique bean names. The Spring container creates and manages bean instances, resolves their dependencies, and provides the beans as requested by other components in the application.
+
+**Q8. What are the bean scopes available in Spring?**
+Spring provides several bean scopes that define the lifecycle and visibility of bean instances. The available bean scopes in Spring are:
+- Singleton: A single instance of the bean is created for the entire application context.
+- Prototype: A new instance of the bean is created whenever it is requested.
+- Request: A new instance of the bean is created for each HTTP request in a web application.
+- Session: A new instance of the bean is created for each HTTP session in a web application.
+- Global Session: Similar to the session scope, but the bean instance is scoped to the global HTTP session when used in a portlet context.
+
+**Q9. What is Autowiring and name the different modes of it?**
+Autowiring is a feature provided by Spring for automatically wiring dependencies between beans. It eliminates the need for explicit bean wiring in the configuration files and allows the container to automatically resolve and inject dependencies based on specific rules. The different modes of autowiring in Spring are:
+- No: No autowiring is performed. Dependencies need to be explicitly configured.
+- ByName: Autowiring is done by matching the bean name with the property name in the container.
+- ByType: Autowiring is done by matching the property type with the type of a single bean in the container. If multiple beans of the same type are found, an exception is thrown.
+- Constructor: Autowiring is done by matching constructor arguments with beans in the container.
+- Autodetect: It first tries to autowire by constructor, and if that fails, it falls back to byType autowiring.
+
+**Q10. Explain Bean life cycle in Spring Bean Factory Container.**
+The Spring Bean Factory Container manages the life cycle of beans within the container. The life cycle of a bean involves the following steps:
+1. Instantiation: The container creates an instance of the bean using the bean's constructor or a factory method.
+2. Dependency Injection: The container injects the dependencies into the bean by setting its properties or constructor arguments.
+3. Bean Post Processing: If any BeanPostProcessor implementations are configured, they can modify or customize the bean instance.
+4. Initialization: The bean's
+
+Initialization: Any initialization logic defined in the bean, such as implementing the InitializingBean interface or defining an initialization method using the init-method attribute, is executed.
+5. Ready for Use: The bean is now ready to be used by the application.
+6. Usage: The bean is used by other components in the application.
+7. Destruction: If the bean implements the DisposableBean interface or defines a destroy-method attribute, the container calls the destroy method to perform any cleanup or release resources held by the bean.
+8. End of Life: The bean is no longer in use and can be garbage collected.
+
+During the bean life cycle, the Spring container provides various extension points and hooks to customize the bean's behavior using BeanPostProcessors, BeanFactoryPostProcessors, and other related mechanisms.
